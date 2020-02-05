@@ -23,7 +23,32 @@
     </header>
 
     <main>
-        <div class="container"></div>
+        <div class="container">
+            <div class="app">
+                <div class="app--description">
+                    <p>A simplified nutrient table is presented below</p>
+                    <p>For detailed information contact via:</p>
+
+                    <div class="app--contact-method">
+                        <span class="fas fa-phone"></span> +48 123 456 789
+                    </div>
+                    <div class="app--contact-method">
+                        <span class="fas fa-envelope"></span> <a href="mailto:example@email.com">example@email.com</a>
+                    </div>
+                </div>
+
+                <h2>List of nutritional values</h2>
+                <div class="app--values"></div>
+
+                <div class="app--images">
+                    <picture>
+                        <source srcset="assets/nutrition-1000.jpg" media="(min-width: 800px)">
+                        <source srcset="assets/nutrition-800.jpg" media="(min-width: 500px)">
+                        <img src="assets/nutrition-500.jpg" alt="nutrition">
+                    </picture>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="dist/main.min.js" type="text/javascript"></script>
 </body>
