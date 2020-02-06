@@ -1,0 +1,38 @@
+.app--products {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and (min-width: map-get($breakpoints, sm)) {
+        flex-direction: row;
+    }
+
+    input {
+        box-sizing: border-box;
+        padding: $main-spacing /4;
+        border: 2px solid #ddd;
+        flex-basis: 24%;
+        margin-bottom: $main-spacing /2;
+        cursor: pointer;
+
+        &:focus {
+            border: 2px solid $color-primary;
+            transition: .1s;
+        }
+    }
+
+    .app--btn {
+        background-color: $color-primary;
+        border: 0px;
+        color: white;
+        padding: $main-spacing /2;
+        margin: $main-spacing/4 auto;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($color-primary, 10%);
+        }
+    }
+}

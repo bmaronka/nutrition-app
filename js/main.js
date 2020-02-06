@@ -22,7 +22,7 @@ const values = [{
         fat: 0.4,
         carbs: 14.6
     },
-]
+];
 
 const valuesContainer = document.querySelector('.app--values');
 
@@ -89,3 +89,47 @@ drawValues(desktopViewport.matches);
 desktopViewport.addListener(isDesktop => {
     drawValues(isDesktop.matches);
 })
+
+const nameInput = document.querySelector('.app--product-name');
+const caloriesInput = document.querySelector('.app--product-calories');
+const fatInput = document.querySelector('.app--product-fat');
+const carbsInput = document.querySelector('.app--product-carbs');
+
+const addBtn = document.querySelector('.app--add-btn');
+const deleteBtn = document.querySelector('.app--delete-btn');
+
+const cleanInputs = () => {
+    nameInput.value = '';
+    caloriesInput.value = '';
+    fatInput.value = '';
+    carbsInput.value = '';
+}
+
+const addNewProduct = () => {
+    const caloriesValue = Number(caloriesInput.value);
+    const fatValue = Number(fatInput.value);
+    const carbsValue = Number(carbsInput.value);
+
+    if (caloriesValue < 0 || fatValue < 0 || carbsValue < 0) {
+        alert('wrong value');
+    } else if (nameInput.value === '' || caloriesInput.value === '' || fatInput.value === '' || carbsInput.value === '') {
+        alert('enter all values')
+    } else {
+        values.push({
+            name: nameInput.value,
+            calories: caloriesValue,
+            fat: fatValue,
+            carbs: carbsValue,
+        })
+        drawValues(desktopViewport.matches);
+        cleanInputs();
+    }
+}
+
+const deleteProduct = () => {
+    values.pop();
+    drawValues(desktopViewport.matches);
+}
+
+addBtn.addEventListener('click', addNewProduct);
+deleteBtn.addEventListener('click', deleteProduct);
